@@ -24,11 +24,14 @@ static uint32_t _spp_client = 0;
 extern "C" void
 app_main(){
     printf("Vamos começar...\n");
+
     if(!initBluetooth("ESP32_DE_GABRIEL", esp_spp_callback)){
       printf("Ja deu errado!");
     }
-
-      
+    while(true)
+    {
+      vTaskDelay(500/portTICK_PERIOD_MS);
+    }
 }
 
 bool initBluetooth(const char* deviceName, esp_spp_cb_t *esp_spp_cb)
